@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/react-facebook-sdk/static/js/runtime~main.5c519c72.js"
   },
   {
-    "revision": "cc1293935d385b63aa81",
-    "url": "/react-facebook-sdk/static/js/main.cc129393.chunk.js"
+    "revision": "4b9fe2e692c761380551",
+    "url": "/react-facebook-sdk/static/js/main.4b9fe2e6.chunk.js"
   },
   {
-    "revision": "cbecae5c2f28090645b0",
-    "url": "/react-facebook-sdk/static/js/1.cbecae5c.chunk.js"
+    "revision": "2ffc12570154b10d4096",
+    "url": "/react-facebook-sdk/static/js/1.2ffc1257.chunk.js"
   },
   {
-    "revision": "cc1293935d385b63aa81",
-    "url": "/react-facebook-sdk/static/css/main.1b939a2d.chunk.css"
+    "revision": "4b9fe2e692c761380551",
+    "url": "/react-facebook-sdk/static/css/main.f1f06c94.chunk.css"
   },
   {
-    "revision": "f177a5f5aafb33ccbc886fcc9610bb9a",
+    "revision": "a02764a1bf773680ac39bde0b675b22d",
     "url": "/react-facebook-sdk/index.html"
   }
 ];
