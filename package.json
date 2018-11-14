@@ -2,7 +2,7 @@
   "name": "carapilsclub",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://meiremans.github.io/react-facebook-sdk/",
+  "homepage" : "https://carapils.club/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",

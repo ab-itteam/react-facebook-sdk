@@ -1,18 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import App from "./App";
 import MembershipCard from "./MembershipCard";
 
 const Users = () => <h2>Users</h2>;
 
 const AppRouter = () => (
-    <Router>
+    <HashRouter >
         <div>
             <Route path="/" exact component={App} />
             <Route path="/card/" component={MembershipCard} />
             <Route path="/users/" component={Users} />
         </div>
-    </Router>
+    </HashRouter>
 );
 
 export default AppRouter;
