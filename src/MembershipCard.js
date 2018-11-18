@@ -4,9 +4,24 @@ import './membershipCard.css'
 import {FacebookShareButton, FacebookIcon} from 'react-share';
 import * as qs from 'query-string';
 import carapilssmall from './img/carapilssmall.png'
+const request = require('request');
+
+const postUrl = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/carapils-yvjvz/service/carapilsrequests/incoming_webhook/saveUser";
 const QRCode = require('qrcode-react');
 
 
+
+const saveUser = (userData) => {
+    request.post(
+        postUrl,
+        { json: userData },
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body)
+            }
+        }
+    );
+};
 
 export default class FacebookLogin extends Component {
     constructor(props) {
@@ -30,6 +45,7 @@ export default class FacebookLogin extends Component {
                 userId: parsed.fbid
             }
         }
+        saveUser(this.state);
     };
 
     render() {
@@ -47,13 +63,12 @@ export default class FacebookLogin extends Component {
                             <p></p>
                         </div>
                     </div>
-                   <div className='fbShareContainer'> <FacebookShareButton url={'carapils.club/card?name=test&fbid=10215558188322336'}> <FacebookIcon size={32} round={true}/> <p className="fbShareText"> Sheir tis on Fajsboek to show your friends jou are TE SJIT </p></FacebookShareButton>
+                   <div className='fbShareContainer'> <FacebookShareButton url={'carapils.club/card?name=test&fbid=10215558188322336'}> <FacebookIcon size={32} round={true}/> <p className="fbShareText"> Sheir tis on Fajsboek to show your friends jou are THE SJIT </p></FacebookShareButton>
                    </div>
                 </div>
             </div>
     }
 }
-
 
 const parseLocation = (location) => {
     if (!location) {
