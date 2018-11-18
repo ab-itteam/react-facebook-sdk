@@ -3,11 +3,6 @@ import MembershipCard from './MembershipCard';
 import './App.css';
 import FacebookLogin from "react-facebook-login";
 
-
-const componentClicked = () => {
-    console.log('click');
-};
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -28,12 +23,10 @@ class App extends Component {
                             autoLoad={true}
                             size="metro"
                             fields="name,email,picture"
-                            onClick={componentClicked}
                             callback={(response) => {
-                                console.log(response);
                                 this.setState({facebookResponse: response});
-                            }}/>}
-
+                            }}
+                        />}
                 </header>
 
             </div>

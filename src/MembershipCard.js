@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
-import ReactToPrint from "react-to-print";
 import './membershipCard.css'
 import {FacebookShareButton, FacebookIcon} from 'react-share';
 import * as qs from 'query-string';
 import carapilssmall from './img/carapilssmall.png'
+import {Link} from "react-router-dom";
+
+
 const request = require('request');
 
 const postUrl = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/carapils-yvjvz/service/carapilsrequests/incoming_webhook/saveUser";
 const QRCode = require('qrcode-react');
 
 
-
 const saveUser = (userData) => {
     request.post(
         postUrl,
-        { json: userData },
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body)
-            }
+        {json: userData},
+        (error, response, body) => {
         }
     );
 };
@@ -32,41 +30,64 @@ export default class FacebookLogin extends Component {
 
     fillInFbDetails = function (location, fb) {
         if (fb) {
+            saveUser(fb);
             this.state = {
+                loggedIn: true,
                 name: fb.name,
                 userId: fb.id
             };
-            console.log(this.state);
         } else {
             const parsed = parseLocation(location);
-            console.log(parsed);
             this.state = {
                 name: parsed.fbname,
                 userId: parsed.fbid
             }
         }
-        saveUser(this.state);
+
     };
 
     render() {
         return <div className="id-card-wrapper">
-                <div className="id-card">
-                    <p className='marqueeText'><marquee>WELCOME TO THE CARA PILS CLUB</marquee></p>
-                    <div className="profile-row">
-                        <div className="dp">
-                            <img src={`//graph.facebook.com/${this.state.userId}/picture?type=large`}/>
-                        </div>
-                        <div className="desc">
-                            <h1>{this.state.name}</h1>
-                            <p>Official Cara Pils Club Member</p>
-                            <p><QRCode value="http://facebook.github.io/react/" logo = {carapilssmall} logoWidth={50}/></p>
-                            <p></p>
-                        </div>
+            <div className="id-card">
+                <p className='marqueeText'>
+                    <marquee>WELCOME TO THE CARA PILS CLUB</marquee>
+                </p>
+                <div className="profile-row">
+                    <div className="dp">
+                        <img src={`//graph.facebook.com/${this.state.userId}/picture?type=large`} alt={"profile"}/>
                     </div>
-                   <div className='fbShareContainer'> <FacebookShareButton url={'carapils.club/card?name=test&fbid=10215558188322336'}> <FacebookIcon size={32} round={true}/> <p className="fbShareText"> Sheir tis on Fajsboek to show your friends jou are THE SJIT </p></FacebookShareButton>
-                   </div>
+                    <div className="desc">
+                        <h1>{this.state.name}</h1>
+                        <p>Official Cara Pils Club Member</p>
+                        <p><QRCode value={`https://carapils.club/card?fbname=${this.state.name}&fbid=${this.state.userId}`} logo={carapilssmall} logoWidth={50}/></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div>
+                    {(() => {
+                        switch (this.state.loggedIn) {
+                            case true :
+                                return <div className='fbShareContainer'>
+                                    <FacebookShareButton
+                                    url={`https://carapils.club/card?fbname=${this.state.name}&fbid=${this.state.userId}`}
+                                    quote={`${this.state.name} is now a member of the Cara Pils Club`}
+                                    hashtag={'#carapils'}
+                                    >
+                                    <FacebookIcon size={32} round={true}/> <p className="fbShareText"> Sheir tis on
+                                    Fajsboek to show your friends you are THE SJIT </p>
+                                </FacebookShareButton>
+                                </div>;
+                            default :
+                                return <Link to={process.env.PUBLIC_URL}><p>JOIN THE MOST EXCLUSIVE BEER CLUB IN
+                                    BELGIUM</p></Link>
+                        }
+                    })()}
+
                 </div>
             </div>
+
+
+        </div>
     }
 }
 

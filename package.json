@@ -14,6 +14,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-facebook-login": "^4.1.1",
+    "react-ga": "^2.5.3",
     "react-identification-card": "^2.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
@@ -27,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "echo 'carapils.club' > ./build/CNAME  && gh-pages -d build"
+    "deploy": "echo 'carapils.club' > ./build/CNAME && cp ./build/index.html ./build/404.html && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
