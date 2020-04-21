@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './membershipCard.css'
-import {FacebookShareButton, FacebookIcon} from 'react-share';
+import {FacebookShareButton, FacebookIcon,WhatsappShareButton,WhatsappIcon} from 'react-share';
 import * as qs from 'query-string';
 import carapilssmall from './img/carapilssmall.png'
 import {Link} from "react-router-dom";
@@ -49,8 +49,8 @@ export default class FacebookLogin extends Component {
     render() {
         return <div className="id-card-wrapper">
             <div className="id-card">
-                <p className='marqueeText'>
-                    <marquee>WELCOME TO THE CARA PILS CLUB</marquee>
+                <p className='desc'>
+                    <br/>
                 </p>
                 <div className="profile-row">
                     <div className="dp">
@@ -59,7 +59,6 @@ export default class FacebookLogin extends Component {
                     <div className="desc">
                         <h1>{this.state.name}</h1>
                         <p>E-rave Member</p>
-                        <p><QRCode value={`https://erave.me/card?fbname=${this.state.name}&fbid=${this.state.userId}`} logo={carapilssmall} logoWidth={50}/></p>
                         <p></p>
                     </div>
                 </div>
@@ -67,14 +66,22 @@ export default class FacebookLogin extends Component {
                     {(() => {
                         switch (this.state.loggedIn) {
                             case true :
-                                return <div className='fbShareContainer'>
-                                    <FacebookShareButton
-                                    url={`https://erave.me/card?fbname=${this.state.name}&fbid=${this.state.userId}`}
-                                    quote={`${this.state.name} is now an E-rave member`}
-                                    hashtag={'#carapils'}
+                                return<div className='fbShareContainer'>
+                                        <FacebookShareButton
+                                            url={`https://erave.me`}
+                                            quote={`${this.state.name} is now an E-rave member, Join the online rave revolution`}
+                                            hashtag={'#erave'}
+                                        >
+                                            <FacebookIcon size={32} round={true}/> <p className="fbShareText"></p>
+                                        </FacebookShareButton>
+                                    <WhatsappShareButton
+                                        url={`https://erave.me`}
+                                        quote={`${this.state.name} is now an E-rave member, Join the online rave revolution`}
+                                        separator=":: "
+                                        className="Demo__some-network__share-button"
                                     >
-                                    <FacebookIcon size={32} round={true}/> <p className="fbShareText"> ShareOOnFaceBook</p>
-                                </FacebookShareButton>
+                                        <WhatsappIcon size={32} round />
+                                    </WhatsappShareButton>
                                 </div>;
                             default :
                                 return <Link to={process.env.PUBLIC_URL}><p>JOIN THE ONLINE RAVE REVOLUTION</p></Link>

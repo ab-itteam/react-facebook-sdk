@@ -4,7 +4,6 @@ body {
 .id-card-wrapper {
     height: 100vh;
     width:100%;
-    background-image: url("./img/wallpapper.jpg");
     display: flex;
 }
 .id-card {
@@ -14,7 +13,7 @@ body {
     margin: auto;
     color: #fff;
     padding: 1em;
-    background-image: url("./img/carapils.png");
+    background-image: url("./img/VIPmember.jpg");
     background-size: contain;
     box-shadow: 0px 0px 3px 1px #a0000c, inset 0px 0px 3px 1px #fff9ff;
 }

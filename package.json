@@ -18,7 +18,7 @@
     "react-identification-card": "^2.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "3.4.1",
-    "react-share": "^2.3.1",
+    "react-share": "^4.1.0",
     "react-to-print": "^2.0.0-alpha-4",
     "request": "^2.88.0"
   },
