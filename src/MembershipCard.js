@@ -58,8 +58,8 @@ export default class FacebookLogin extends Component {
                     </div>
                     <div className="desc">
                         <h1>{this.state.name}</h1>
-                        <p>Official Cara Pils Club Member</p>
-                        <p><QRCode value={`https://carapils.club/card?fbname=${this.state.name}&fbid=${this.state.userId}`} logo={carapilssmall} logoWidth={50}/></p>
+                        <p>E-rave Member</p>
+                        <p><QRCode value={`https://erave.me/card?fbname=${this.state.name}&fbid=${this.state.userId}`} logo={carapilssmall} logoWidth={50}/></p>
                         <p></p>
                     </div>
                 </div>
@@ -69,17 +69,15 @@ export default class FacebookLogin extends Component {
                             case true :
                                 return <div className='fbShareContainer'>
                                     <FacebookShareButton
-                                    url={`https://carapils.club/card?fbname=${this.state.name}&fbid=${this.state.userId}`}
-                                    quote={`${this.state.name} is now a member of the Cara Pils Club`}
+                                    url={`https://erave.me/card?fbname=${this.state.name}&fbid=${this.state.userId}`}
+                                    quote={`${this.state.name} is now an E-rave member`}
                                     hashtag={'#carapils'}
                                     >
-                                    <FacebookIcon size={32} round={true}/> <p className="fbShareText"> Sheir tis on
-                                    Fajsboek to show your friends you are THE SJIT </p>
+                                    <FacebookIcon size={32} round={true}/> <p className="fbShareText"> ShareOOnFaceBook</p>
                                 </FacebookShareButton>
                                 </div>;
                             default :
-                                return <Link to={process.env.PUBLIC_URL}><p>JOIN THE MOST EXCLUSIVE BEER CLUB IN
-                                    BELGIUM</p></Link>
+                                return <Link to={process.env.PUBLIC_URL}><p>JOIN THE ONLINE RAVE REVOLUTION</p></Link>
                         }
                     })()}
 

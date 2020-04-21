@@ -17,7 +17,7 @@
     "react-ga": "^2.5.3",
     "react-identification-card": "^2.0.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "3.4.1",
     "react-share": "^2.3.1",
     "react-to-print": "^2.0.0-alpha-4",
     "request": "^2.88.0"
